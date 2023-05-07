@@ -41,6 +41,9 @@ img{
 
 .result-container{
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #result-img{
@@ -53,4 +56,12 @@ img{
 
 #food{
     margin-top: 40px;
+}
+
+#retry{
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: rgb(49, 109, 244);
+    color: white;
+    border: none;
 }

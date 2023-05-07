@@ -14,7 +14,7 @@ const FOOD = document.querySelector('#food');
 const explain = document.querySelector('#explain');
 const image = document.querySelector('#result-img');
 const resultContainer = document.querySelector('.result-container');
-
+const retry = document.querySelector('#retry');
 
 const q = {
     1: {
@@ -104,7 +104,7 @@ bBtn.addEventListener('click', ()=>{
 function updateQuestion(){
     if (num==13){
         questionContainer.style.display='none';
-        resultContainer.style.display='block';
+        resultContainer.style.display='flex';
         
         (foodResult += parseInt(KO.value)>2?"K":"O");
         (foodResult += parseInt(RB.value)>2?"R":"B");
@@ -123,3 +123,7 @@ function updateQuestion(){
         num++;
     }
 }
+
+retry.addEventListener('click', ()=>{
+    location.reload(true);
+})
