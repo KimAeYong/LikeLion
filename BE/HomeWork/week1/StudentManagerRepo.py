@@ -1,6 +1,6 @@
 from abc import *
 
-class StduentManagerRepo:
+class StudentManagerRepo:
     @abstractmethod
     def add_student(self, student): # 학생 추가
         pass
@@ -20,3 +20,4 @@ class StduentManagerRepo:
     @abstractmethod
     def update_student(self, name, student): # 학생 수정
         pass
+    

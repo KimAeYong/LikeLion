@@ -1,28 +1,23 @@
-import StudentManageRepo
-import Student
+from StudentManagerRepo import *
 
-class StudentManageImpl(StudentManageRepo):
+class StudentManageImpl(StudentManagerRepo):
     def __init__(self):
-        studentList = {}
+        self.studentDict = {}
+
     def add_student(self, student):
-        self.studentList.add(student)
-        return
+        self.studentDict[student.name] = student
+
     def list_student(self):
-        for student in self.studntList:
-            print(student)
-            print()
+        return self.studentDict.keys()
+
     def search_student(self, name):
-        if name in self.studentList:
-            #여기
-            return
-        else:
-            print("찾으려는 학생이 없습니다..")
+        return self.studentDict.get(name, "학생이 존재하지 않습니다")
+    
     def delete_student(self, name):
-        if name in self.studentList:
-            #here
-            return
-    def update_student(self, name, student):
-        if name in self.studentList:
-            print("학생 정보를 다시 입력해주세요.")
-            self.delete_student(name)
-            self.add_student(student)
+        self.studentDict.pop(name, "학생이 존재하지 않습니다")
+        return
+        
+    def update_student(self,name, student):
+        self.delete_student(name)
+        self.add_student(student)
+    

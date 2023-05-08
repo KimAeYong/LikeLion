@@ -1,14 +1,11 @@
-import StudentManageImpl
+from StudentManageImpl import *
 
 class StudentManagerService:
     def __init__(self):
-        self.__student_repo = StudentMangerImpl()
+        self.__student_repo = StudentManageImpl()
 
     def add_student(self, student): # 학생 추가
         self.__student_repo.add_student(student)
-
-    def recieve_student(self): # 학생 출력
-        self.__student_repo.recieve_student()
 
     def list_student(self): # 전체 학생 조회
         return self.__student_repo.list_student()
