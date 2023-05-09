@@ -6,6 +6,8 @@ class Student:
         self.major = major
         self.score = score
     def __str__(self):
-        return f"학번: {self.studentNumber}\n이름: {self.name}\n나이: {self.name}\n전공: {self.major}\n학점: {self.score}"
+        return f"학번: {self.studentNumber}\n이름: {self.name}\n나이: {self.age}\n전공: {self.major}\n학점: {self.score}"
     def get_score(self):
         return self.score
+    def get_name(self):
+        return self.name

@@ -3,6 +3,61 @@ from  Student import *
 # from Student import *
 
 def main(manager):
+    """
+    테스트 케이스
+    """
+    print("테스트 케이스 입니다.")
+    print("학생 객체를 생성합니다.")
+    std1 = Student(1,"kim",20,"cs",3.5)
+    std2 = Student(2,"park",22,"cs",3)
+    std3 = Student(3,"yoon",25,"cs",4.1)
+    std4 = Student(4,"kwak",28,"cs",2.6)
+    std5 = Student(5,"han",21,"cs",3.8)
+    print("학생 1~5를 추가합니다.")
+    manager.add_student(std1)
+    manager.add_student(std2)
+    manager.add_student(std3)
+    manager.add_student(std4)
+    manager.add_student(std5)
+    print("전체 학생을 조회합니다.")
+    print("========")
+    for i in manager.list_student():
+                print(i)
+    print("========")
+    print("yoon 학생을 조회합니다.")
+    print(manager.search_student("yoon"))
+    print("========")
+    print("han 학생을 삭제합니다.")
+    print("...")
+    manager.delete_student("han")
+    print("삭제 완료.")
+    print("다시 전체 학생을 조회하여 삭제되었음을 확인합니다.")
+    for i in manager.list_student():
+                print(i)
+    print("========")
+    print("yoon 학생을 수정해보겠습니다.")
+    print("...")
+    new_yoon = Student(3,"yoon",25,"art",4.1)
+    manager.update_student("yoon", new_yoon)
+    print("수정 완료.")
+    print("수정되었는지 조회하여 확인합니다.")
+    print(manager.search_student("yoon"))
+    print("yoon학생이 미대생이 되었습니다.")
+    print("========")
+    print("성적순으로 정렬하겠습니다.")
+    manager.sort_student()
+    print("...")
+    print("성적순으로 정렬 완료.")
+    print("전체 학생을 조회하여 정렬되었는지 확인해보겠습니다.")
+    print("yoon, kim, park, kwak 순으로 정렬되어야 정상입니다.")
+    for i in manager.list_student():
+                print(i)
+    print("========")
+    print("테스트 케이스를 종료합니다.")
+    print("시스템을 종료합니다.")
+    print("떙큐.")
+    raise SystemExit
+
     while(1):
         print("============")
         print("1. 학생 추가")
