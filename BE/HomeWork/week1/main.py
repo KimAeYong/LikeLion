@@ -10,10 +10,11 @@ def main(manager):
         print("3. 학생 조회")
         print("4. 학생 제거")
         print("5. 학생 수정")
-        print("6. 종료")
+        print("6. 학생 성적순 정렬")
+        print("7. 종료")
         print("============")
         userNum = int(input(">>"))
-        #왜 파이썬은 switch-case 문이 없을까?
+        
         if userNum == 1:
             studnetNumber = input("학번: ")
             name = input("이름: ")
@@ -29,24 +30,33 @@ def main(manager):
 
         elif userNum ==3:
             name = input("이름: ")
+            print("-----")
             print(manager.search_student(name))
-            #왜 에러뜸???
 
         elif userNum ==4:
             name = input("이름: ")
             manager.delete_student(name)
 
         elif userNum ==5:
+            name_to_correct = input("이름: ")
+            print("새 학생의 정보를 입력합니다.")
             studnetNumber = input("학번: ")
             name = input("이름: ")
             age = input("나이: ")
             major = input("전공: ")
             score = input("학점: ")
             newStudent = Student(studnetNumber, name, age, major, score)
-            manager.update_student(name, newStudent)
-            # 이 함수를 실행했을 떄 입력을 받고싶지만, 조건이 맞지 않게돼버려서..
+            manager.update_student(name_to_correct, newStudent)
+            # 이 함수를 실행했을 떄 입력을 받고싶지만, 조건이 맞지 않게 돼버려서..
 
         elif userNum==6:
+            manager.sort_student()
+            print("학생이 정렬되었습니다.")
+            """
+            TODO: managerimpl.py codefix
+            """
+        
+        elif userNum==7:
             raise SystemExit
         else:
             print("잘못 입력하셨습니다. 다시 입력하세요.")

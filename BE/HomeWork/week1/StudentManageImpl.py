@@ -20,4 +20,20 @@ class StudentManageImpl(StudentManagerRepo):
     def update_student(self,name, student):
         self.delete_student(name)
         self.add_student(student)
-    
+
+    def sort_studnet(self):
+        """
+        TODO: code fix
+        """
+        sorted_list = []
+        for student in self.studentDict:
+            sorted_list.append(student.get_score())
+        sorted_list.sort(reverse=True)
+        sorted_dict = {}
+        for value in sorted_list:
+            for key in self.studentDict:
+                if self.studentDict[key]==value:
+                    sorted_dict[key]=value
+                break
+        self.studentDict = sorted_dict
+        return self.studentDict

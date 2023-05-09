@@ -20,4 +20,8 @@ class StudentManagerRepo:
     @abstractmethod
     def update_student(self, name, student): # 학생 수정
         pass
+
+    @abstractmethod
+    def sort_studnet(self): # 학생 성적순 정렬
+        pass
     

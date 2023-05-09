@@ -5,5 +5,7 @@ class Student:
         self.age = age
         self.major = major
         self.score = score
-    def getName(self):
-        return self.name
+    def __str__(self):
+        return f"학번: {self.studentNumber}\n이름: {self.name}\n나이: {self.name}\n전공: {self.major}\n학점: {self.score}"
+    def get_score(self):
+        return self.score

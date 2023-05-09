@@ -18,3 +18,6 @@ class StudentManagerService:
 
     def update_student(self, name, student): # 학생 수정
         self.__student_repo.update_student(name, student)
+
+    def sort_student(self): #학생 성적순 정렬
+        self.__student_repo.sort_studnet()
