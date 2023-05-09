@@ -20,4 +20,4 @@ class StudentManagerService:
         self.__student_repo.update_student(name, student)
 
     def sort_student(self): #학생 성적순 정렬
-        self.__student_repo.sort_studnet()
+        self.__student_repo.sort_student()

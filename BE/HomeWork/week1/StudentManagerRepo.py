@@ -22,6 +22,6 @@ class StudentManagerRepo:
         pass
 
     @abstractmethod
-    def sort_studnet(self): # 학생 성적순 정렬
+    def sort_student(self): # 학생 성적순 정렬
         pass
     

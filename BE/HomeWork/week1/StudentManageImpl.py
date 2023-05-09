@@ -2,19 +2,19 @@ from StudentManagerRepo import *
 
 class StudentManageImpl(StudentManagerRepo):
     def __init__(self):
-        self.studentDict = {}
+        self.__studentDict = {}
 
     def add_student(self, student):
-        self.studentDict[student.name] = student
+        self.__studentDict[student.get_name()] = student
 
     def list_student(self):
-        return self.studentDict.keys()
+        return self.__studentDict.keys()
 
     def search_student(self, name):
-        return self.studentDict.get(name, "학생이 존재하지 않습니다")
+        return self.__studentDict.get(name, "학생이 존재하지 않습니다")
     
     def delete_student(self, name):
-        self.studentDict.pop(name, "학생이 존재하지 않습니다")
+        self.__studentDict.pop(name, "학생이 존재하지 않습니다")
         return
         
     def update_student(self,name, student):
@@ -23,33 +23,13 @@ class StudentManageImpl(StudentManagerRepo):
 
     def sort_student(self):
         """
-        TODO: code fix
+        TODO: code fix, it's not working
         """
-        unsorted_list = list(self.studentDict.values())
-        unsorted_list.sort(reverse=True, key=lambda student:student.get_score())
-        sortedDict={}
-        for student in unsorted_list:
-            sortedDict[student.get_name()] = student
-        # for obj in self.studentDict:
-        #     for scores in unsorted_list:
-        #         if obj.get_score==scores:
-        #             sortedDict[obj.get_name] = obj
-        #         break
-        self.studentDict = sortedDict
-        return
-        
-            
-        
-
-        # sorted_list = []
-        # for student in self.studentDict.items():
-        #     sorted_list.append(student[1].get_score())
-        # sorted_list.sort(reverse=True)
-        # sorted_dict = {}
-        # for value in sorted_list:
-        #     for key in self.studentDict:
-        #         if self.studentDict[key]==value:
-        #             sorted_dict[key.get_name()]=key
-        #             break
-        # self.studentDict = sorted_dict
-        # return
+        # print("굿")
+        scores=[]
+        for i in self.__studentDict.values():
+            scores.append(i.get_score())
+        scores.sort(reverse=True)
+        for i in range(len(scores)):
+            print(scores[i])
+        return scores
