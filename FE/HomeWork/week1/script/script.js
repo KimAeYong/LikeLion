@@ -14,7 +14,7 @@ const FOOD = document.querySelector('#food');
 const explain = document.querySelector('#explain');
 const image = document.querySelector('#result-img');
 const resultContainer = document.querySelector('.result-container');
-const retry = document.querySelector('#retry');
+const retryBtn = document.querySelector('#retry-btn');
 
 const q = {
     1: {
@@ -124,6 +124,6 @@ function updateQuestion(){
     }
 }
 
-retry.addEventListener('click', ()=>{
+retryBtn.addEventListener('click', ()=>{
     location.reload(true);
 })
