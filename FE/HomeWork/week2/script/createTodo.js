@@ -9,7 +9,6 @@ function getTodoValue() {
         if (todoInput.value==""){
             alert("할일을 입력해주세요.")
         }else{
-            console.log(todoInput.value)
             genereateTodo(todoInput.value)
             todoInput.value=''
         }
@@ -19,7 +18,6 @@ function getTodoValue() {
             if (todoInput.value==""){
                 alert("할일을 입력해주세요.")
             }else{
-                console.log(todoInput.value)
                 genereateTodo(todoInput.value)
                 todoInput.value=''
             }
@@ -36,6 +34,13 @@ function genereateTodo(todo){
     newGeneratedInput.setAttribute('class', 'todo-input')
     newGeneratedDelBtn.setAttribute('class', 'delBtn')
     newGeneratedCheckBtn.setAttribute('class', 'checkbox')
+
+    newGeneratedDelBtn.addEventListener('mouseover', ()=>{
+        newGeneratedDelBtn.style.opacity=1
+    })
+    newGeneratedDelBtn.addEventListener('mouseout', ()=>{
+        newGeneratedDelBtn.style.opacity=0
+    })
 
     newGeneratedTodo.appendChild(newGeneratedCheckBtn)
     newGeneratedTodo.appendChild(newGeneratedInput)
