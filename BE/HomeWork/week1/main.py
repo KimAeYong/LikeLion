@@ -1,6 +1,5 @@
 from  StudentManagerService import *
 from  Student import *
-from Student import *
 
 def main(manager):
     
