@@ -13,44 +13,48 @@
 
 <body class="container">
 
-    <div class="cont title-container">
-        <h1>선택장애 당신을 위한<br>식사 메뉴 고르기</h1>
-        <img src="./img/food.png">
-        <button id="startBtn" class="btn btn-primary">시작하기</button>
-    </div>
+    <main>
+        <article class="cont title-container">
+            <h1>선택장애 당신을 위한<br>식사 메뉴 고르기</h1>
+            <img src="./img/food.png">
+            <button id="startBtn" class="btn btn-primary">시작하기</button>
+        </article>
 
-    <div class="cont question-container bg-light">
-        <div class="progress mt-5">
-            <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)"></div>
+        <article class="cont question-container bg-light">
+            <div class="progress mt-5">
+                <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)"></div>
+            </div>
+            <h3 id="question" class="mt-5">질문</h3>
+            <p id="type">Choose</p>
+            <button id="a" class="btn btn-dark">1</button>
+            <button id="b" class="btn btn-dark">2</button>
+        </article>
+
+        <article class="cont result-container">
+            <h3 id="food">Food</h3>
+            <p id="explain">설명</p>
+            <img id="result-img" src="" alt="">
+            <button id="retry">마음에안들어..</button>
+        </article>
+        <!-- 
+        Korean    Other
+        Rice      Bread/Noodle
+        Heavy     Light
+        Expensive Cheap
+        -->
+        <div class="score-container">
+            <input id="KO" type="text" class="input" value="0">
+            <input id="RB" type="text" class="input" value="0">
+            <input id="HL" type="text" class="input" value="0">
+            <input id="EC" type="text" class="input" value="0">
         </div>
-        <h3 id="question" class="mt-5">질문</h3>
-        <p id="type">Choose</p>
-        <button id="a" class="btn btn-dark">1</button>
-        <button id="b" class="btn btn-dark">2</button>
-    </div>
+    </main>
 
-    <div class="cont result-container">
-        <h3 id="food">Food</h3>
-        <p id="explain">설명</p>
-        <img id="result-img" src="" alt="">
-        <button id="retry">마음에안들어..</button>
-    </div>
-    <!-- 
-    Korean    Other
-    Rice      Bread/Noodle
-    Heavy     Light
-    Expensive Cheap
-    -->
-    <div class="score-container">
-        <input id="KO" type="text" class="input" value="0">
-        <input id="RB" type="text" class="input" value="0">
-        <input id="HL" type="text" class="input" value="0">
-        <input id="EC" type="text" class="input" value="0">
-    </div>
-
-    <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./script/script.js"></script>
+    <footer>
+        <!-- js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./script/script.js"></script>
+    </footer>
 </body>
 </html>
