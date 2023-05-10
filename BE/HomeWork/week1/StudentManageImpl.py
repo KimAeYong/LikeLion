@@ -22,14 +22,10 @@ class StudentManageImpl(StudentManagerRepo):
         self.add_student(student)
 
     def sort_student(self):
-        """
-        TODO: code fix, it's not working
-        """
-        # print("굿")
-        scores=[]
-        for i in self.__studentDict.values():
-            scores.append(i.get_score())
-        scores.sort(reverse=True)
-        for i in range(len(scores)):
-            print(scores[i])
-        return scores
+        scores = list(self.__studentDict.values())
+        scores.sort(reverse=True, key=lambda x:x.get_score())
+        sorted_names = []
+        for i in scores:
+            sorted_names.append(i.get_name())
+        print(sorted_names)
+        return sorted_names
