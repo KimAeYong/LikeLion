@@ -27,5 +27,4 @@ class StudentManageImpl(StudentManagerRepo):
         sorted_names = []
         for i in scores:
             sorted_names.append(i.get_name())
-        print(sorted_names) #['yoon', 'park', 'kim', 'kwak'] 출력됨
-        return sorted_names #none으로 return됨??
+        return sorted_names

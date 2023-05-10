@@ -46,7 +46,8 @@ def main(manager):
 
         print("성적순으로 정렬하겠습니다.")
         names = manager.sort_student()
-        print(names)
+        for name in names:
+            print(name)
         print("========")
 
         print("테스트 케이스를 종료합니다.")
