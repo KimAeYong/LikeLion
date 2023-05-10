@@ -1,6 +1,9 @@
 const todoInput = document.querySelector('.todo-input')
 const enterBtn = document.querySelector('.enter')
 const todoList = document.querySelector('.todo-list')
+const leftItems = document.querySelector('.left-items')
+
+numberTodo = 0
 
 getTodoValue()
 
@@ -41,10 +44,24 @@ function genereateTodo(todo){
     newGeneratedDelBtn.addEventListener('mouseout', ()=>{
         newGeneratedDelBtn.style.opacity=0
     })
+    newGeneratedDelBtn.addEventListener('click', ()=>{
+        newGeneratedDelBtn.parentElement.parentElement.removeChild(newGeneratedDelBtn.parentElement)
+        numberTodo--
+        leftItemsController()
+    })
 
     newGeneratedTodo.appendChild(newGeneratedCheckBtn)
     newGeneratedTodo.appendChild(newGeneratedInput)
     newGeneratedTodo.appendChild(newGeneratedDelBtn)
     todoList.appendChild(newGeneratedTodo)
     newGeneratedInput.value = todo
+    numberTodo++
+    leftItemsController()
 }
+
+function leftItemsController(){
+    leftItems.innerHTML = "🥕 오늘 할 일이 "+ numberTodo + "개 남았습니다 🥕"
+}
+
+
+
