@@ -47,7 +47,7 @@ def main(manager):
         print("성적순으로 정렬하겠습니다.")
         names = manager.sort_student()
         for name in names:
-            print(name)
+            print(name[1])
         print("========")
 
         print("테스트 케이스를 종료합니다.")
@@ -90,6 +90,7 @@ def main(manager):
                 manager.delete_student(name)
 
             elif userNum == "5":
+                # TODO: 없는 학생 입력했을때 예외처리
                 name_to_correct = input("이름: ")
                 print("새 학생의 정보를 입력합니다.")
                 studnetNumber = input("학번: ")
@@ -102,6 +103,7 @@ def main(manager):
 
             elif userNum == "6":
                 manager.sort_student()
+                #TODO: 배열 출력하기
                 print("학생이 정렬되었습니다.")
             
             elif userNum == "7":
@@ -116,3 +118,10 @@ def main(manager):
 if __name__ == '__main__':
     manager = StudentManagerService()
     main(manager)
+
+
+
+"""
+hello world!!
+hello world!!
+"""
