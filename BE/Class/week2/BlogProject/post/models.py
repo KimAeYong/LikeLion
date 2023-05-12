@@ -10,7 +10,7 @@ class Blog(models.Model):
 
 class Category(models.Model):
     categoryName = models.CharField(max_length=20)
-    blog = models.ForeignKey(on_delete=models.CASCADE)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     def __str__(self):
         return self.categoryName
 
@@ -23,8 +23,8 @@ class Post(models.Model):
         return self.title
     
 class Tag(models.Model):
-    tagName = models.CharField()
-    post = models.ForeignKey(Post)
+    tagName = models.CharField(max_length=20)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     def __str__(self):
         return self.tagName
 
@@ -39,3 +39,7 @@ class Comment(models.Model):
     #cascade: 탈퇴 시(삭제 시) 다 날아감
     def __str__ (self):
         return self.comment
+    
+    """
+    foreignkey에서 매개변수가 두개 있어야 한다는데, cascade를 꼭 줘야하나? 다른거 안됨?
+    """
