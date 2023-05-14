@@ -4,12 +4,13 @@ const todoList = document.querySelector('.todo-list')
 const leftItems = document.querySelector('.left-items')
 const todoDelBtn = document.querySelector('.delBtn')
 const checkbox = document.querySelector('.checkbox')
-const showAllBtn = document.querySelector('.show-all-btn selected')
-const showActiveBtn = document.querySelector('.show-active-btn')
-const showCompletedBtn = document.querySelector('.show-completed-btn')
-const clearAllBtn = document.querySelector('.clear-all-btn')
+const showAllBtn = document.querySelector('#all')
+const showActiveBtn = document.querySelector('#active')
+const showCompletedBtn = document.querySelector('#completed')
+const clearAllBtn = document.querySelector('#clear')
 
 let todoNumber = 0
+const todoListArray = []
 
 class Todo{
     constructor(input){
@@ -17,11 +18,11 @@ class Todo{
         updateLeftItems()
         this.isCompleted = 0
         
-        let newGeneratedTodo = document.createElement("li")
+        this.newGeneratedTodo = document.createElement("li")
         let newGeneratedInput = document.createElement("input")
         let newGeneratedDelBtn = document.createElement("button")
         let newGeneratedCheckBtn = document.createElement("button")
-        newGeneratedTodo.setAttribute('class', '.todo-item')
+        this.newGeneratedTodo.setAttribute('class', 'todo-item')
         newGeneratedInput.setAttribute('class', 'todo-input')
         newGeneratedDelBtn.setAttribute('class', 'delBtn')
         newGeneratedDelBtn.innerHTML='X'
@@ -30,18 +31,18 @@ class Todo{
         newGeneratedCheckBtn.innerHTML='✔︎'
         newGeneratedCheckBtn.style.color='black'
         newGeneratedInput.value = input.trim()
-        newGeneratedTodo.appendChild(newGeneratedCheckBtn)
-        newGeneratedTodo.appendChild(newGeneratedInput)
-        newGeneratedTodo.appendChild(newGeneratedDelBtn)
-        todoList.appendChild(newGeneratedTodo)
+        this.newGeneratedTodo.appendChild(newGeneratedCheckBtn)
+        this.newGeneratedTodo.appendChild(newGeneratedInput)
+        this.newGeneratedTodo.appendChild(newGeneratedDelBtn)
+        todoList.appendChild(this.newGeneratedTodo)
 
         this.checkBtn = newGeneratedCheckBtn
         this.delBtn = newGeneratedDelBtn
 
-        newGeneratedTodo.addEventListener('mouseover', ()=>{
+        this.newGeneratedTodo.addEventListener('mouseover', ()=>{
             newGeneratedDelBtn.style.opacity=1
         })
-        newGeneratedTodo.addEventListener('mouseout', ()=>{
+        this.newGeneratedTodo.addEventListener('mouseout', ()=>{
             newGeneratedDelBtn.style.opacity=0
         })
 
@@ -69,6 +70,13 @@ class Todo{
                 updateLeftItems()
             }
         })
+        todoListArray.push(this)
+    }
+    hideDisplay(){
+        this.newGeneratedTodo.style.display='none'
+    }
+    showDisplay(){
+        this.newGeneratedTodo.style.display='block'
     }
 }
 
@@ -105,16 +113,8 @@ todoInput.addEventListener('keypress', (e)=>{
     }
 })
 
-//TODO: not working
 showActiveBtn.addEventListener('click', ()=>{
-    const activeTodo = document.querySelectorAll('.todo-item')
-    console.log(typeof(activeTodo))
-    for (i=0; i<activeTodo.length; i++){
-        const todoItem = activeTodo[i]
-        if (todoItem.dataset.isCompleted==='0'){
-            todoItem.style.display='block'
-        } else{
-            todoItem.style.display='none'
-        }
-    }
+    todoListArray.forEach((todo)=>{
+        todo.isCompleted?todo.hideDisplay():todo.showDisplay()
+    })
 })
