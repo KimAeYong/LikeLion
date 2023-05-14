@@ -8,6 +8,7 @@ const showAllBtn = document.querySelector('#all')
 const showActiveBtn = document.querySelector('#active')
 const showCompletedBtn = document.querySelector('#completed')
 const clearAllBtn = document.querySelector('#clear')
+const todoTitle = document.querySelector('.todo-title')
 
 let todoNumber = 0
 const todoListArray = []
@@ -156,3 +157,12 @@ clearAllBtn.addEventListener('click',()=>{
     })
     
 })
+updateTime()
+setInterval(updateTime, 1000)
+function updateTime(){
+    const now = new Date
+    let hour = String(now.getHours()).padStart(2,'0')
+    let min = String(now.getMinutes()).padStart(2,'0')
+    let second = String(now.getSeconds()).padStart(2,'0')
+    todoTitle.textContent = `${hour}:${min}:${second}`
+}
