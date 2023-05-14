@@ -76,9 +76,17 @@ class Todo{
         this.newGeneratedTodo.style.display='none'
     }
     showDisplay(){
-        this.newGeneratedTodo.style.display='block'
+        this.newGeneratedTodo.style.display='flex'
+    }
+    deleteTodo(){
+        this.hideDisplay()
+        if(this.isCompleted===1){
+            todoNumber--
+            updateLeftItems()
+        }
     }
 }
+
 
 function updateLeftItems(){
     leftItems.textContent = `🥕 오늘 할 일이 ${todoNumber}개 남았습니다 🥕`
@@ -117,4 +125,34 @@ showActiveBtn.addEventListener('click', ()=>{
     todoListArray.forEach((todo)=>{
         todo.isCompleted?todo.hideDisplay():todo.showDisplay()
     })
+})
+
+showCompletedBtn.addEventListener('click', ()=>{
+    todoListArray.forEach((todo)=>{
+        todo.isCompleted?todo.showDisplay():todo.hideDisplay()
+    })
+})
+
+showAllBtn.addEventListener('click',()=>{
+    todoListArray.forEach((todo)=>{
+        todo.showDisplay()
+    })
+})
+
+function deleteTodo(){
+    // todoList.removeChild(todoList.children)
+    // todoNumber=0
+    // updateLeftItems()
+    todoList.children.forEach((todo)=>{
+        todo.hideDisplay()
+    })
+    todoNumber=0
+    updateLeftItems()
+}
+
+clearAllBtn.addEventListener('click',()=>{
+    todoListArray.forEach((todo)=>{
+        todo.deleteTodo()
+    })
+    
 })
