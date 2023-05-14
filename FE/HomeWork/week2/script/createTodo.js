@@ -4,6 +4,10 @@ const todoList = document.querySelector('.todo-list')
 const leftItems = document.querySelector('.left-items')
 const todoDelBtn = document.querySelector('.delBtn')
 const checkbox = document.querySelector('.checkbox')
+const showAllBtn = document.querySelector('.show-all-btn selected')
+const showActiveBtn = document.querySelector('.show-active-btn')
+const showCompletedBtn = document.querySelector('.show-completed-btn')
+const clearAllBtn = document.querySelector('.clear-all-btn')
 
 let todoNumber = 0
 
@@ -25,7 +29,7 @@ class Todo{
         newGeneratedCheckBtn.setAttribute('class', 'checkbox')
         newGeneratedCheckBtn.innerHTML='✔︎'
         newGeneratedCheckBtn.style.color='black'
-        newGeneratedInput.value = input
+        newGeneratedInput.value = input.trim()
         newGeneratedTodo.appendChild(newGeneratedCheckBtn)
         newGeneratedTodo.appendChild(newGeneratedInput)
         newGeneratedTodo.appendChild(newGeneratedDelBtn)
@@ -34,7 +38,6 @@ class Todo{
         this.checkBtn = newGeneratedCheckBtn
         this.delBtn = newGeneratedDelBtn
 
-        //마우스 갖다대면 삭제버튼 보이게
         newGeneratedTodo.addEventListener('mouseover', ()=>{
             newGeneratedDelBtn.style.opacity=1
         })
@@ -70,8 +73,9 @@ class Todo{
 }
 
 function updateLeftItems(){
-    leftItems.innerHTML = '🥕 오늘 할 일이 '+todoNumber+'개 남았습니다 🥕'
+    leftItems.textContent = `🥕 오늘 할 일이 ${todoNumber}개 남았습니다 🥕`
 }
+
 enterBtn.addEventListener('click', ()=>{
     if (todoInput.value==""){
         alert("할일을 입력해주세요.")
@@ -97,6 +101,20 @@ todoInput.addEventListener('keypress', (e)=>{
                 newtodo = new Todo(todoInput.value)
                 todoInput.value=''
             }
+        }
+    }
+})
+
+//TODO: not working
+showActiveBtn.addEventListener('click', ()=>{
+    const activeTodo = document.querySelectorAll('.todo-item')
+    console.log(typeof(activeTodo))
+    for (i=0; i<activeTodo.length; i++){
+        const todoItem = activeTodo[i]
+        if (todoItem.dataset.isCompleted==='0'){
+            todoItem.style.display='block'
+        } else{
+            todoItem.style.display='none'
         }
     }
 })
