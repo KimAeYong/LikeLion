@@ -81,16 +81,6 @@ class Todo{
     showDisplay(){
         this.newGeneratedTodo.style.display='flex'
     }
-    // deleteTodo(){
-    //     // this.hideDisplay()
-    //     // if(this.isCompleted===1){
-    //     //     todoNumber--
-    //     //     updateLeftItems()
-    //     // }
-    //     todoListArray.forEach((index)=>{
-    //         todoListArray.slice(index, 1)
-    //     })
-    // }
 }
 
 
