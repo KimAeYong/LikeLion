@@ -19,7 +19,7 @@ class Post(models.Model):
     title = models.CharField(max_length=20)
     body = models.TextField()
     date = models.DateField(auto_now_add=True)
-    category = models.OneToOneField(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     def __str__(self):
         return self.title
 

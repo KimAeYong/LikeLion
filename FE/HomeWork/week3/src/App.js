@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Header, Nav, Article, Create, Update} from "./components";
+import {Header, Nav, Article, Create, Update} from "./Components";
 
 const App = () => {
   const [mode, setMode] = useState('WELCOME');
@@ -13,15 +13,23 @@ const App = () => {
   ])
 
   const handleTopicClick = (topicId) => { // 완성해보세요
-    ...
+    setMode('READ')
+    setId(topicId)
   };
 
   const handleCreate = (title, body) => { // 완성해보세요
-    ...
+    setTopics([...topics, {id:nextId, title, body}])
+    setMode('READ')
+    setNextId((prevId)=>prevId+1)
   };
 
   const handleUpdate = (title, body) => { // 완성해보세요
-    ...
+    // 전달받은 title, body로 해당 topics 값을 변경한 새로운 topics 생성 
+		// 업데이트된 topics를 기존 topics에 할당
+    const tempTopics = topics.map(topic=>topic.id===id?{...topics, title, body}:topics)
+		// 업데이트 끝났으면 읽기모드로
+    setTopics(tempTopics)
+    setMode('READ')
   };
 
   let content = null;
