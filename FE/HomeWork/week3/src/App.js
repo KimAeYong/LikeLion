@@ -27,17 +27,9 @@ const App = () => {
     // 전달받은 title, body로 해당 topics 값을 변경한 새로운 topics 생성 
 		// 업데이트된 topics를 기존 topics에 할당
     const tempTopics = topics.map(
-      (topic)=>{
-        if (id===topics.id){
-          return {
-            ...topics, 
-            title: title,
-            body: body
-          }
-        }
-        return topic
+      (topic) =>
+        topic.id === id ? { ...topic, title, body } : topic
         // topic.id===id?{...topics, title:title, body:body}:topics
-      }
       )
 		// 업데이트 끝났으면 읽기모드로
     setTopics(tempTopics)

@@ -1,6 +1,5 @@
 import React from 'react'
 const Nav = (props) =>{
-    console.log(props)
     return (
         <div>
         <ol>
