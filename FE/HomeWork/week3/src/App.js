@@ -13,13 +13,15 @@ const App = () => {
   ])
 
   const handleTopicClick = (topicId) => { // 완성해보세요
-    setMode('READ')
     setId(topicId)
+    setMode('READ')
   };
 
   const handleCreate = (title, body) => { // 완성해보세요
+    // const newTopic = {id:nextId, title, body}
+    // setTopics(...topics, newTopic)
     setTopics([...topics, {id:nextId, title, body}])
-    setMode('READ')
+    setMode('WELCOME')
     setNextId((prevId)=>prevId+1)
   };
 
@@ -29,7 +31,6 @@ const App = () => {
     const tempTopics = topics.map(
       (topic) =>
         topic.id === id ? { ...topic, title, body } : topic
-        // topic.id===id?{...topics, title:title, body:body}:topics
       )
 		// 업데이트 끝났으면 읽기모드로
     setTopics(tempTopics)
@@ -46,6 +47,7 @@ const App = () => {
       break;
     case 'READ':
       topic = topics.find((topic) => topic.id === id);
+      //console.log(topic) -> undefined
       content = <Article title={topic.title} body={topic.body}/>;
       contextControl = <li>
           <a href={'/update/' + id} onClick={(e)=>{
