@@ -14,14 +14,12 @@ def home(request):
 
 
 def post_create(request):
-    print(f"==== request.POST : {request.POST} ====")
     title = request.POST.get("title")
     body = request.POST.get("body")
     date = request.POST.get("date")
     category = Category.objects.get(pk=request.POST.get("category"))
     post = Post.objects.create(title=title, body=body, date=date, category=category)
     return redirect(reverse("post_detail", args=[post.pk]))
-
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
